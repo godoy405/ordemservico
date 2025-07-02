@@ -210,10 +210,11 @@
             <h2 class="h5 no-margin-bottom"><?php echo $titulo; ?></h2>
           </div>
         </div>
-        <section class="no-padding-top no-padding-bottom">
-       
-            <!-- Espaço reservado para renderizar o conteúdo de cada view que estender esse layout -->
-            <?php echo $this->renderSection('conteudo'); ?>
+        <section class="no-padding-top no-padding-bottom">       
+            <div class="container-fluid">
+              <!-- Espaço reservado para renderizar o conteúdo de cada view que estender esse layout -->
+              <?php echo $this->renderSection('conteudo'); ?>
+            </div>  
 
         </section>
  
