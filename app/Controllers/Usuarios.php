@@ -20,5 +20,25 @@ class Usuarios extends BaseController
             'titulo' => 'Listando os usuários do sistema',
         ];
         return view('Usuarios/index', $data);
+
+    }
+
+    public function recuperausuarios()
+    {
+       
+        // if(!$this->request->isAJAX()){
+        //     return redirect()->back();
+        // }
+
+        $atributos = [
+            'id',
+            'imagem',
+            'nome',
+            'email',
+            'ativo'
+        ];
+
+        $usuarios = $this->usuarioModel->select($atributos)
+                                       ->findAll();
     }
 }

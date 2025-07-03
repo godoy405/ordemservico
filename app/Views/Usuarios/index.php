@@ -47,4 +47,17 @@
 
 <script src="https://cdn.datatables.net/v/bs4/dt-2.3.2/r-3.0.5/datatables.min.js" integrity="sha384-9m1/ul4UUfv6yoZjjPpf4EtIPDGd505EmvdZmpntp4ljXDaH5wT57N/Z2jXTXg2/" crossorigin="anonymous"></script>
 
+<script>
+  new DataTable('#ajaxTable', {
+    ajax: '<?php echo site_url('usuarios/recuperausuarios'); ?>',
+    columns: [
+        { data: 'imagem' },
+        { data: 'nome' },
+        { data: 'email' },
+        { data: 'ativo' }        
+    ]
+});
+</script>
+
+
 <?php echo $this->endSection(); ?>
