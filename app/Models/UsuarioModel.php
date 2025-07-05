@@ -12,11 +12,11 @@ class UsuarioModel extends Model
     protected $allowedFields    = [
         'nome',
         'email',
-        'password',
+        'password_hash', // Alterado para corresponder à migração
         'reset_hash',
-       'reset_expira_em',
-       'imagem',
-       // Não colocaremos o campo ativo... Pois existe a manipulação de formulário 
+        'reset_expira_em',
+        'imagem',
+        // Não colocaremos o campo ativo... Pois existe a manipulação de formulário 
     ];
 
     protected bool $allowEmptyInserts = false;
@@ -30,16 +30,5 @@ class UsuarioModel extends Model
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'criado_em';
     protected $updatedField  = 'atualizado_em';
-    protected $deletedField  = 'detelado_em';
-
-    // Validation
-    protected $validationRules      = [];
-    protected $validationMessages   = [];
-   
-
-    // Callbacks
-   
-    protected $beforeInsert   = [];   
-    protected $beforeUpdate   = [];
-    
+    protected $deletedField  = 'deletado_em';
 }

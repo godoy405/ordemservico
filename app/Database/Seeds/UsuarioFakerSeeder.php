@@ -13,7 +13,7 @@ class UsuarioFakerSeeder extends Seeder
         // use the factory to create a Faker\Generator instance
         $faker = \Faker\Factory::create();
 
-        $criarQuantosUsuarios = 50;
+        $criarQuantosUsuarios = 5000;
 
         $usuarioPush = [];
 
@@ -21,21 +21,16 @@ class UsuarioFakerSeeder extends Seeder
             array_push($usuarioPush, [
                 'nome' => $faker->unique()->name,
                 'email' => $faker->unique()->email,
-                'password_hash' => '123456', // alterar o fake seeder quando conhecermos como criptografar a senha(hash)
-                'ativo' => true,
-
+                'password_hash' => password_hash('123456', PASSWORD_DEFAULT), // Hash seguro da senha
+                'ativo' => $faker->numberBetween(0, 1),  // true ou false
             ]);
         }
 
-        //echo '<pre>';
-        //print_r($usuarioPush);
-        //exit;
-
-        $usuarioModel->skipValidation(true) // bypass validation
-                     ->protect(false) // bypass protection dos campos allowedFields
+        // Desativa a validação e proteção para permitir a inserção do campo 'ativo'
+        $usuarioModel->skipValidation(true)
+                     ->protect(false)
                      ->insertBatch($usuarioPush);
 
-        echo "$criarQuantosUsuarios criados com sucesso!";
-        
+        echo "$criarQuantosUsuarios usuários criados com sucesso!";
     }
 }
