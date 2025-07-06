@@ -74,6 +74,15 @@ class Usuarios extends BaseController
     }
 
 
+    /**
+     * Método responsável por retornar uma instância do Model de usuário, após já ter sido validado
+     * @param integer|null $id
+     * @return Exceptions|object
+     * 
+     * 
+     */
+
+
     private function buscaUsuarioOu404(?int $id = null)
     {
         if(!$id || !$usuario = $this->usuarioModel->withDeleted(true)->find($id)) 
