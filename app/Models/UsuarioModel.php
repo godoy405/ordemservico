@@ -6,7 +6,7 @@ use CodeIgniter\Model;
 
 class UsuarioModel extends Model
 {
-    protected $table            = 'App\Entities\Usuario';    
+    protected $table            = 'usuarios';    // Corrigido: nome real da tabela no banco de dados
     protected $returnType       = 'object';
     protected $useSoftDeletes   = true;    
     protected $allowedFields    = [

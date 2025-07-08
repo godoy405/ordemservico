@@ -9,3 +9,4 @@ $routes->get('/', 'Home::index');
 $routes->get('usuarios', 'Usuarios::index');
 $routes->get('usuarios/recuperausuarios', 'Usuarios::recuperausuarios');
 $routes->get('usuarios/exibir/(:num)', 'Usuarios::exibir/$1');
+$routes->get('usuarios/editar/(:num)', 'Usuarios::editar/$1');

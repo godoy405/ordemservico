@@ -1,4 +1,5 @@
 <?php echo $this->extend('Layout/principal') ?>
+<?php use CodeIgniter\I18n\Time; ?>
 
 <?php echo $this->section('titulo'); ?>
     <?php echo $titulo; ?>
@@ -25,15 +26,15 @@
 
                 <h5 class="card-title mt-2"><?php echo esc($usuario->nome);?></h5>
                 <p class="card-text"> <?php echo $usuario->email;?></p>
-                <p class="card-text">Criado em: <?php echo $usuario->criado_em;?></p>
-                <p class="card-text">Atualizado em: <?php echo $usuario->atualizado_em;?></p>
+                <p class="card-text">Criado em: <?php echo Time::parse($usuario->criado_em)->humanize();?></p>
+                <p class="card-text">Atualizado em: <?php echo Time::parse($usuario->atualizado_em)->humanize();?></p>
                 <!-- Example single danger button -->
                 <div class="btn-group">
                     <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Ações
                     </button>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="<?php echo site_url("usuario/editar/$usuario->id"); ?>">Editar usuário</a>                    
+                        <a class="dropdown-item" href="<?php echo site_url("usuarios/editar/$usuario->id"); ?>">Editar usuário</a>                    
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#">Separated link</a>
                     </div>
