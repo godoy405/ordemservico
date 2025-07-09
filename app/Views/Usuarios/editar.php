@@ -21,6 +21,8 @@
 
               <?php echo form_open('/', ['id' => 'form'], ['id' => "$usuario->id"]) ?>
 
+              <?php echo $this->include('Usuarios/_form');?>
+
               <div class="form-group mt-5 mb-4">
                 <input id="btn-salvar" type="submit" value="salvar" class="btn btn-danger mr-2">
                 <a href="<?php echo site_url("usuarios/exibir/$usuario->id") ?>" class="btn btn-secondary ml-2">Voltar</a>

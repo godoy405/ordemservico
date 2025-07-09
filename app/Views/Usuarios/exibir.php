@@ -14,9 +14,9 @@
         <div class="col-lg-4">
             <div class="block">
                 <div class="text-center">
-                    <?php if($usuario->imagem == null): ?>
+                    <?php if ($usuario->imagem == null) : ?>
                         <img src="<?php echo site_url('recursos/img/usuario_sem_imagem.png'); ?>" class="card-img-top" style="width: 40%;" alt="Usuário sem imagem">
-                    <?php else: ?>
+                    <?php else : ?>
                         <img src="<?php echo site_url("usuario/imagem/$usuario->imagem"); ?>" class="card-img-top" style="width: 40%;" alt="<?php echo esc($usuario->nome); ?>">
                     <?php endif; ?>
                     <br>

@@ -34,7 +34,7 @@ class CriaTabelaUsuario extends Migration
                 'default'    => null,
             ],
             'reset_expira_em' => [
-                'type'       => 'DATETIME',                
+                'type'       => 'DATETIME',
                 'null'       => true,
                 'default'    => null,
             ],
@@ -45,21 +45,21 @@ class CriaTabelaUsuario extends Migration
                 'default'    => null,
             ],
             'ativo' => [
-                'type'       => 'BOOLEAN',                
-                'null'       => false,                
+                'type'       => 'BOOLEAN',
+                'null'       => false,
             ],
             'criado_em' => [
-                'type'       => 'DATETIME',                
+                'type'       => 'DATETIME',
                 'null'       => true,
                 'default'    => null,
             ],
             'atualizado_em' => [
-                'type'       => 'DATETIME',                
+                'type'       => 'DATETIME',
                 'null'       => true,
                 'default'    => null,
             ],
             'deletado_em' => [
-                'type'       => 'DATETIME',                
+                'type'       => 'DATETIME',
                 'null'       => true,
                 'default'    => null,
             ],
@@ -70,7 +70,6 @@ class CriaTabelaUsuario extends Migration
         $this->forge->addUniqueKey('email');
 
         $this->forge->createTable('usuarios');
-
     }
 
     public function down()

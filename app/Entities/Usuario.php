@@ -9,8 +9,8 @@ class Usuario extends Entity
 {
    
     protected $dates   = [
-        'criado_em', 
-        'atualizado_em', 
+        'criado_em',
+        'atualizado_em',
         'deletado_em'
     ];
     
@@ -20,5 +20,4 @@ class Usuario extends Entity
         'deletado_em'   => 'datetime',
         'ativo'         => 'boolean'
     ];
-    
 }

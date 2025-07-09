@@ -60,15 +60,15 @@ $errorId = uniqid('error', true);
 
     <pre>
     Caused by:
-    <?= esc($prevException::class), esc($prevException->getCode() ? ' #' . $prevException->getCode() : '') ?>
+            <?= esc($prevException::class), esc($prevException->getCode() ? ' #' . $prevException->getCode() : '') ?>
 
-    <?= nl2br(esc($prevException->getMessage())) ?>
+            <?= nl2br(esc($prevException->getMessage())) ?>
     <a href="https://www.duckduckgo.com/?q=<?= urlencode($prevException::class . ' ' . preg_replace('#\'.*\'|".*"#Us', '', $prevException->getMessage())) ?>"
        rel="noreferrer" target="_blank">search &rarr;</a>
-    <?= esc(clean_path($prevException->getFile()) . ':' . $prevException->getLine()) ?>
+            <?= esc(clean_path($prevException->getFile()) . ':' . $prevException->getLine()) ?>
     </pre>
 
-        <?php
+            <?php
         }
         ?>
     </div>
@@ -92,7 +92,6 @@ $errorId = uniqid('error', true);
 
                 <ol class="trace">
                 <?php foreach ($trace as $index => $row) : ?>
-
                     <li>
                         <p>
                             <!-- Trace info -->
@@ -104,7 +103,7 @@ $errorId = uniqid('error', true);
                                     echo esc(clean_path($row['file']) . ' : ' . $row['line']);
                                 }
                                 ?>
-                            <?php else: ?>
+                            <?php else : ?>
                                 {PHP internal code}
                             <?php endif; ?>
 
@@ -181,7 +180,7 @@ $errorId = uniqid('error', true);
                                 <td>
                                     <?php if (is_string($value)) : ?>
                                         <?= esc($value) ?>
-                                    <?php else: ?>
+                                    <?php else : ?>
                                         <pre><?= esc(print_r($value, true)) ?></pre>
                                     <?php endif; ?>
                                 </td>
@@ -211,7 +210,7 @@ $errorId = uniqid('error', true);
                                 <td>
                                     <?php if (is_string($value)) : ?>
                                         <?= esc($value) ?>
-                                    <?php else: ?>
+                                    <?php else : ?>
                                         <pre><?= esc(print_r($value, true)) ?></pre>
                                     <?php endif; ?>
                                 </td>
@@ -286,7 +285,7 @@ $errorId = uniqid('error', true);
                                 <td>
                                     <?php if (is_string($value)) : ?>
                                         <?= esc($value) ?>
-                                    <?php else: ?>
+                                    <?php else : ?>
                                         <pre><?= esc(print_r($value, true)) ?></pre>
                                     <?php endif; ?>
                                 </td>
@@ -298,7 +297,6 @@ $errorId = uniqid('error', true);
                 <?php endforeach ?>
 
                 <?php if ($empty) : ?>
-
                     <div class="alert">
                         No $_GET, $_POST, or $_COOKIE Information to show.
                     </div>
@@ -307,7 +305,6 @@ $errorId = uniqid('error', true);
 
                 <?php $headers = $request->headers(); ?>
                 <?php if (! empty($headers)) : ?>
-
                     <h3>Headers</h3>
 
                     <table>

@@ -8,7 +8,7 @@ class UsuarioModel extends Model
 {
     protected $table            = 'usuarios';    // Corrigido: nome real da tabela no banco de dados
     protected $returnType       = 'object';
-    protected $useSoftDeletes   = true;    
+    protected $useSoftDeletes   = true;
     protected $allowedFields    = [
         'nome',
         'email',
@@ -16,7 +16,7 @@ class UsuarioModel extends Model
         'reset_hash',
         'reset_expira_em',
         'imagem',
-        // Não colocaremos o campo ativo... Pois existe a manipulação de formulário 
+        // Não colocaremos o campo ativo... Pois existe a manipulação de formulário
     ];
 
     protected bool $allowEmptyInserts = false;
