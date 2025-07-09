@@ -24,8 +24,8 @@
               <?php echo $this->include('Usuarios/_form');?>
 
               <div class="form-group mt-5 mb-4">
-                <input id="btn-salvar" type="submit" value="salvar" class="btn btn-danger mr-2">
-                <a href="<?php echo site_url("usuarios/exibir/$usuario->id") ?>" class="btn btn-secondary ml-2">Voltar</a>
+                <input id="btn-salvar" type="submit" value="salvar" class="btn btn-danger btn-sm mr-2">
+                <a href="<?php echo site_url("usuarios/exibir/$usuario->id") ?>" class="btn btn-secondary btn-sm ml-2">Voltar</a>
               </div>  
               
               <?php echo form_close();?>
@@ -38,5 +38,30 @@
 <?php echo $this->endSection(); ?>
 
 <?php echo $this->section('scripts'); ?>
-    <!-- Aqui coloco os scripts da view -->
+
+<script>
+    $(document).ready(function(){
+        $('#form').on('submit', function(e){
+            e.preventDefault();
+            $.ajax({
+                type: 'POST',
+                url: '<?php echo site_url('usuarios/atualizar')?>',
+                data: new FormData(this),
+                dataType: 'json',    
+                contentType: false,
+                cache: false,
+                processData: false,  
+                beforeSend: function(){
+                    $("response").html("");
+                    $('#btn-salvar').val('Por favor aguarde...');
+                },
+                success: function(response){
+                    $('#btn-salvar').val('Salvar');  
+                    $('#btn-salvar').removeAttr('disabled');      
+                },  
+            })
+        })
+    })
+</script>
+    
 <?php echo $this->endSection(); ?>

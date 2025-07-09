@@ -84,6 +84,13 @@ class Usuarios extends BaseController
         return view('Usuarios/editar', $data);
     }
 
+    public function atualizar()
+    {
+        if (!$this->request->isAJAX()) {
+            return redirect()->back();
+       }
+    }
+
 
     /**
      * Método responsável por retornar uma instância do Model de usuário, após já ter sido validado
